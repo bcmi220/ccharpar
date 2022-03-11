@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+CUDA_VISIBLE_DEVICES=1 python src_chardep/main.py train \
+ --model-path-base models/0927_xlnet_goldtags \
+ --epochs 200 \
+ --joint-syn-const \
+ --joint-syn-dep \
+ --dataset char \
+ --use-xlnet \
+ --use-tags \
+ --use-cat \
+ --use-pos-layer \
+ --const-lada 0.8 \
+ --embedding-path data/csskip.gz \
+ --embedding-type sskip \
+ --model-name cl/0927_xlnet_goldtags \
+ --checks-per-epoch 1 \
+ --pos-layers 2 \
+ --num-layers 2 \
+ --learning-rate 0.00001 \
+ --batch-size 4 \
+ --eval-batch-size 20 \
+ --subbatch-max-tokens 1000 \
